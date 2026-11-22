@@ -20,6 +20,7 @@ export async function createRewiew({
 }): Promise<CreateReviewResult> {
   try {
     const token = await getUserToken();
+    if (!token) throw new Error("Log in first!");
 
     const response = await fetch(
       `${process.env.BASE_URL_V_1}/products/${productId}/reviews`,
@@ -84,6 +85,7 @@ export async function updateReview({
 }): Promise<ReviewActionResult> {
   try {
     const token = await getUserToken();
+    if (!token) throw new Error("Log in first!");
     const response = await fetch(
       `${process.env.BASE_URL_V_1}/reviews/${reviewId}`,
       {
@@ -102,7 +104,7 @@ export async function updateReview({
       };
     }
 
-    revalidateTag(`reviews-${productId}`, "max"); // Next 15: من غير الـ argument التاني
+    revalidateTag(`reviews-${productId}`, "max");
     revalidatePath(`/products/${productId}`);
     return { success: true };
   } catch (error) {
@@ -123,6 +125,7 @@ export async function deleteReview({
 }): Promise<ReviewActionResult> {
   try {
     const token = await getUserToken();
+    if (!token) throw new Error("Log in first!");
     const response = await fetch(
       `${process.env.BASE_URL_V_1}/reviews/${reviewId}`,
       { method: "DELETE", headers: { token } },
