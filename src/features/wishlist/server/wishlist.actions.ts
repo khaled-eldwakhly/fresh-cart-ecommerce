@@ -17,6 +17,7 @@ export async function getLoggedUserWishlist(): Promise<WishlistResponse> {
 
 export async function addProductToWishlist(productId: string) {
   const token = await getUserToken();
+  if (!token) throw new Error("Log in first!");
   const res = await fetch(`${process.env.BASE_URL_V_1}/wishlist`, {
     method: "POST",
     headers: { "Content-Type": "application/json", token },
