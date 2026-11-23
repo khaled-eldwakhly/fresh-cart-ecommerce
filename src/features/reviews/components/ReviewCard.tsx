@@ -76,7 +76,7 @@ export default function ReviewCard({
   }
 
   return (
-    <article className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+    <article className="min-w-0 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
       <div className="flex items-center gap-3">
         <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-primary-700 to-primary-500 font-bold text-white">
           {review.user.name.charAt(0).toUpperCase()}
@@ -122,7 +122,9 @@ export default function ReviewCard({
           </div>
         </div>
       ) : (
-        <p className="mt-3 leading-relaxed text-gray-600">{review.review}</p>
+        <p className="mt-3 leading-relaxed wrap-break-word text-gray-600">
+          {review.review}
+        </p>
       )}
 
       {error && (

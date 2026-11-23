@@ -21,6 +21,7 @@ import { signupSchema, signupSchemaType } from "../../schemas/signup.schema";
 import { signupAction } from "../../server/auth.actions";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function SignupForm() {
   const [eye, setEye] = useState(false);
@@ -38,9 +39,12 @@ export default function SignupForm() {
     },
   });
 
+  const router = useRouter();
+
   async function handleSignup(values: signupSchemaType) {
     const response = await signupAction(values);
     if (response.message === "success") {
+      router.push("/signin");
       toast.success("Account Created Successfully");
     } else {
       toast.error(response.message);
