@@ -31,7 +31,7 @@ export default async function FeaturedProducts() {
           featured <span className="text-primary-600">products</span>
         </span>
         <Link
-          href={"/"}
+          href={"/products"}
           className="capitalize text-lg sm:text-lg text-primary-600 group"
         >
           view all products

@@ -21,7 +21,9 @@ export default async function AllProductsSection() {
   }
   return (
     <>
-      <ProductsSection products={productsResponseData} />
+      <section className="container page-padding">
+        <ProductsSection products={productsResponseData} />
+      </section>
     </>
   );
 }
