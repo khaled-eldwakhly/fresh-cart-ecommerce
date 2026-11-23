@@ -41,7 +41,7 @@ export default async function FeaturedProducts() {
           />
         </Link>
       </div>
-      <ProductsSection products={productsResponse.data} />
+      <ProductsSection products={productsResponse.data} featuredGlag />
     </section>
   );
 }
