@@ -6,7 +6,7 @@ export default function ProductsSection({
   featuredGlag,
 }: {
   products: Product[];
-  featuredGlag: boolean;
+  featuredGlag?: boolean;
 }) {
   return (
     <>
