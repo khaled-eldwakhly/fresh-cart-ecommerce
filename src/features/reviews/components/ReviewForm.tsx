@@ -26,7 +26,7 @@ export default function ReviewForm({
     return (
       <div className="rounded-2xl border border-dashed border-gray-300 p-6 text-center text-gray-600">
         Please{" "}
-        <Link href="/login" className="font-semibold text-green-600 underline">
+        <Link href="/signin" className="font-semibold text-green-600 underline">
           sign in
         </Link>{" "}
         to write a review.
