@@ -42,14 +42,12 @@ export default function VerifyPasswordForm() {
   });
 
   async function handleVerifyPassword(value: verifyPasswordSchemaType) {
-    console.log(value);
     try {
       const response = await verifyPassword(value);
       if (response.status === "Success") {
         router.push("/reset-password");
       }
     } catch (error) {
-      console.log(error);
       toast.error(
         error instanceof Error ? error.message : "Failed to send reset code!",
       );

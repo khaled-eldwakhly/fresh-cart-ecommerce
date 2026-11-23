@@ -42,7 +42,6 @@ export default function ForgotPasswordForm() {
         router.push("/verify-password");
       }
     } catch (error) {
-      console.log(error);
       toast.error(
         error instanceof Error ? error.message : "Failed to send reset code!",
       );

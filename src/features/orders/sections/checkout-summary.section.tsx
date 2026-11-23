@@ -69,7 +69,6 @@ export default function CheckoutSummary({
         await setCartStoreWithAPI();
       }
     } catch (error) {
-      console.log(error);
       toast.error(
         error instanceof Error ? `${error.message}` : "Unexpected Error!",
       );
@@ -77,8 +76,6 @@ export default function CheckoutSummary({
       setOrderLoading(false);
     }
   }
-
-  console.log(address)
 
   async function handleCheckoutSession() {
     if (!address) {
@@ -92,7 +89,6 @@ export default function CheckoutSummary({
         window.location.href = response.session.url;
       }
     } catch (error) {
-      console.log(error);
       toast.error(
         error instanceof Error ? `${error.message}` : "Unexpected Error!",
       );

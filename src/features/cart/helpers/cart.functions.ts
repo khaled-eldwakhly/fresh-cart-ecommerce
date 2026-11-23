@@ -26,13 +26,7 @@ export async function sendGuestCartToServer() {
           itemExist.count + storeItem.count,
           available,
         );
-        console.log({
-          serverCount: itemExist.count,
-          storeCount: storeItem.count,
-          serverAvailable: itemExist.availableQuantity,
-          storeAvailable: storeItem.availableQuantity,
-          finalCount,
-        });
+
         if (finalCount !== itemExist.count) {
           const updateRes = await updateCartProductQuantity(
             itemExist.product._id,
@@ -72,13 +66,8 @@ export async function sendGuestCartToServer() {
 }
 
 export async function setCartStoreWithAPI() {
-  const {
-    setItems,
-    setCartId,
-    setCartOwnerId,
-    setCreatedAt,
-    setUpdatedAt,
-  } = useCartStore.getState();
+  const { setItems, setCartId, setCartOwnerId, setCreatedAt, setUpdatedAt } =
+    useCartStore.getState();
 
   const response = await getLoggedUserCart();
   if (response.status !== "success") {

@@ -7,8 +7,6 @@ export const metadata = {
 
 
 export default async function Brands() {
-  const token = await getUserToken()
-  console.log(token)
   return (
     <>
       <BrandsScreen />

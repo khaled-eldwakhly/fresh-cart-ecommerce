@@ -18,6 +18,7 @@ import {
   getLoggedUserAddresses,
 } from "../server/addresses.actions";
 import { Address, ShippingAddress } from "../types/addresses.types";
+import { toast } from "sonner";
 
 export function UserAddresses({
   refreshKey,
@@ -38,7 +39,9 @@ export function UserAddresses({
         setAddresses(response.data);
       }
     } catch (error) {
-      console.log(error);
+      toast.error(
+        error instanceof Error ? error.message : "Faield to load addresses!",
+      );
     } finally {
       setLoading(false);
     }

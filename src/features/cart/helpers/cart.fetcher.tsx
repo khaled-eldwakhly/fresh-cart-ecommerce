@@ -57,7 +57,6 @@ export default function CartFetcher() {
       try {
         await syncPromise;
       } catch (error) {
-        console.log(error);
       } finally {
         isSyncing.current = false;
       }

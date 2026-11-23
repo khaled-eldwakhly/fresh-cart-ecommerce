@@ -78,7 +78,6 @@ export default function ResetPasswordForm() {
       toast.success("Password reset successfully");
       router.push("/signin");
     } catch (error) {
-      console.log(error);
       toast.error(
         error instanceof Error ? error.message : "Failed to reset password!",
       );

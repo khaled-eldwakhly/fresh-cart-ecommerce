@@ -75,9 +75,10 @@ export default function AddressForm({ onSuccess }: { onSuccess: () => void }) {
           phone: "",
         });
       }
-      console.log(response);
     } catch (error) {
-      console.log(error);
+      toast.error(
+        error instanceof Error ? error.message : "Faield to add address!",
+      );
     }
   }
   return (
